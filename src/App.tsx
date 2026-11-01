@@ -24,6 +24,7 @@ const activities = [
   { icon: Gamepad2, title: 'Gaming Together', text: 'Play games, share experiences, and have fun.' },
   { icon: Users, title: 'Find New Friends', text: 'Connect with people who share similar interests.' },
   { icon: Sparkles, title: 'Community Events', text: 'Participate in activities and gatherings.' },
+  { icon: Heart, title: 'Share Your Interests', text: 'Talk about the things you enjoy with people who get it.' },
 ]
 
 const highlights = [
@@ -159,7 +160,7 @@ function CTA() {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-grid"><div><Logo /><p>A welcoming corner for conversations,<br />connections, and a little fun.</p></div><div className="footer-links"><span>Explore</span><a href="#about">About</a><a href="#activities">Activities</a><a href="#community">Community</a><a href="#faq">FAQ</a></div><div className="footer-links"><span>Find us</span><a href={DISCORD_INVITE} target="_blank" rel="noreferrer">Discord <ArrowUpRight size={13} /></a></div></div><div className="container footer-bottom"><span>© 2025 Titik Temu</span><span>Made for people in between.</span></div></footer>
+  return <footer className="footer"><div className="container footer-grid"><div><Logo /><p>A welcoming corner for conversations,<br />connections, and a little fun.</p></div><div className="footer-links"><span>Explore</span><a href="#about">About</a><a href="#activities">Activities</a><a href="#community">Community</a><a href="#faq">FAQ</a></div><div className="footer-links"><span>Find us</span><a href={DISCORD_INVITE} target="_blank" rel="noreferrer">Discord <ArrowUpRight size={13} /></a></div></div><div className="container footer-bottom"><span>© 2026 Titik Temu</span><span>Made for people in between.</span></div></footer>
 }
 
 function BackToTop() {
