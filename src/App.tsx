@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import {
+  ArrowUp,
   ArrowUpRight,
   ChevronDown,
   Gamepad2,
@@ -161,8 +162,28 @@ function Footer() {
   return <footer className="footer"><div className="container footer-grid"><div><Logo /><p>A welcoming corner for conversations,<br />connections, and a little fun.</p></div><div className="footer-links"><span>Explore</span><a href="#about">About</a><a href="#activities">Activities</a><a href="#community">Community</a><a href="#faq">FAQ</a></div><div className="footer-links"><span>Find us</span><a href={DISCORD_INVITE} target="_blank" rel="noreferrer">Discord <ArrowUpRight size={13} /></a></div></div><div className="container footer-bottom"><span>© 2025 Titik Temu</span><span>Made for people in between.</span></div></footer>
 }
 
+function BackToTop() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 500)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const goToTop = () => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' })
+  }
+
+  return <AnimatePresence>
+    {visible && <motion.button className="back-to-top" type="button" aria-label="Back to top" onClick={goToTop} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 12 }} whileTap={{ scale: 0.94 }}><ArrowUp size={17} /></motion.button>}
+  </AnimatePresence>
+}
+
 function App() {
-  return <div className="site"><Navbar /><main><Hero /><About /><Activities /><DiscordPreview /><Highlights /><FAQ /><CTA /></main><Footer /></div>
+  return <div className="site"><Navbar /><main><Hero /><About /><Activities /><DiscordPreview /><Highlights /><FAQ /><CTA /></main><Footer /><BackToTop /></div>
 }
 
 export default App
